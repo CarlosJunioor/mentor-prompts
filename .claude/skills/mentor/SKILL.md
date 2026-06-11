@@ -97,13 +97,33 @@ answer, then:
 - **A folder `knowledge/apps/<app>/context.md` exists** (match the name
   case-insensitively) → load it and proceed.
 - **No folder for that app** (a new app, or a fresh download with nothing configured) →
-  this is a **first run**. (1) Scaffold `knowledge/apps/<app-name>/context.md` from
-  `knowledge/app-context.template.md`. (2) **Immediately produce the codebase-discovery
-  investigation prompt (mentor-behavior.md §4.0)** — this is the Step 1 goal: a prompt the
-  user pastes into Mentor to survey the whole codebase. (3) When the user pastes Mentor's
-  response back, write the discovered structure into the app's `context.md` (§1 modules /
-  UI flows / ownership, §3 entities / enums / key actions). Only after the context is
-  seeded do you move on to the user's actual task.
+  this is a **first run**. (1) Scaffold the **full per-app folder** (see "Per-app file
+  set" below): `context.md` from `knowledge/app-context.template.md`, plus `database.md`,
+  `blocks.md`, `bugs-backlog.md`, and `handoff.md` with their standard headers.
+  (2) **Immediately produce the codebase-discovery investigation prompt
+  (mentor-behavior.md §4.0)** — this is the Step 1 goal: a prompt the user pastes into
+  Mentor to survey the whole codebase. (3) When the user pastes Mentor's response back,
+  route the discovered structure into the right files: modules / UI flows / ownership →
+  `context.md` §1; entities / static entities / enum values → `database.md`; blocks,
+  screens, and their actions → `blocks.md`. Only after the context is seeded do you move
+  on to the user's actual task.
+
+## Per-app file set (`knowledge/apps/<app>/`)
+
+Every app folder holds these files. `context.md` is the **hub** — it stays lean and
+points to the satellites. Route facts to the right file; never duplicate across them.
+
+| File | Holds | Written when |
+|---|---|---|
+| `context.md` | Hub: project context, modules/UI flows, ownership, features done/pending (§2), key server actions | Onboarding + after every closed task |
+| `database.md` | Entities, attributes + types, FKs, static entities **with record values**, aggregates worth noting | Discovery + whenever a task reveals data facts |
+| `blocks.md` | Screens and blocks inventory: their actions, bindings, events, structural asymmetries | Discovery + whenever a task maps a screen/block |
+| `bugs-backlog.md` | Known bugs and suspicions not yet worked on: symptom, location, hypothesis, priority | Whenever a bug is mentioned but not fixed now |
+| `handoff.md` | Session handoff: where the last session stopped, current task state, next step, open questions | **End of every working session** (overwrite — it describes "now", not history) |
+
+At the **start** of a session on an app, read `handoff.md` first to resume context. At
+the **end** of a session (user says they're stopping, or a task closes), update
+`handoff.md` and route any new facts to their files.
 If the name is ambiguous or you're unsure, list whatever folders exist under
 `knowledge/apps/` and let the user pick.
 
@@ -141,7 +161,10 @@ If the name is ambiguous or you're unsure, list whatever folders exist under
 ## Closing a task
 
 - Document the finished feature into the app's `knowledge/apps/<app>/context.md`
-  (what, where, why, important notes).
+  (what, where, why, important notes) — and route satellite facts: data discoveries →
+  `database.md`, screen/block mappings → `blocks.md`, bugs spotted but not fixed →
+  `bugs-backlog.md`.
+- Update `handoff.md` with where things stand and the next step.
 - If Mentor did something new or surprising, add a 🟣 observation to
   `knowledge/learnings-points.md` section B. Do not stop the task to test it.
 - If observations piled up, suggest running `/limit-testing` later to validate them.

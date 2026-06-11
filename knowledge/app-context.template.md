@@ -1,11 +1,22 @@
 # <App Name> — Mentor working context
 
 > Copy this file to `knowledge/apps/<app-name>/context.md` and fill it in. This is the
-> **source of truth** for one app: its current state, ownership, and accumulated
-> decisions. It holds only app-specific facts — the generic rules for working with
-> Mentor live in [`../../mentor-behavior.md`](../../mentor-behavior.md) and the generic
-> ODC patterns in [`../../outsystems-patterns.md`](../../outsystems-patterns.md). Don't
-> duplicate those here; reference them.
+> **hub file** for one app: its current state, ownership, and accumulated decisions.
+> It holds only app-specific facts — the generic rules for working with Mentor live in
+> [`../../mentor-behavior.md`](../../mentor-behavior.md) and the generic ODC patterns in
+> [`../../outsystems-patterns.md`](../../outsystems-patterns.md). Don't duplicate those
+> here; reference them.
+>
+> The hub is part of a **per-app file set** (all in the same folder; `/mentor` scaffolds
+> them automatically):
+> - `context.md` — this hub: project context, ownership, features done/pending, key actions
+> - `database.md` — entities, attributes, FKs, static entity values, notable aggregates
+> - `blocks.md` — screens & blocks inventory: actions, bindings, events, asymmetries
+> - `bugs-backlog.md` — known bugs / suspicions not yet worked on
+> - `handoff.md` — where the last session stopped + next step (overwritten each session)
+>
+> Keep this hub lean: deep data facts go to `database.md`, screen/block detail to
+> `blocks.md`. One fact lives in exactly one file.
 
 ---
 
