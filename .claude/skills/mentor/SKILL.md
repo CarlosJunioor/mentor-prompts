@@ -50,6 +50,10 @@ Right after the banner, show this command guide (adapt formatting freely, keep t
 >
 > I never touch your app — I write prompts, **you** paste them into Mentor in ODC Studio
 > and paste the answers back.
+>
+> 🔁 **The loop that makes this work:** after running any prompt in Mentor, **always paste
+> Mentor's full response back here**. That's how I keep learning your codebase — every
+> response grows your app's context file, so the next prompts get sharper.
 
 Then ask the app-name question.
 
@@ -130,6 +134,9 @@ If the name is ambiguous or you're unsure, list whatever folders exist under
    review). One prompt per change, in order. Fill templates with exact, verbatim identifiers.
 8. **Remind the user of the safety loop** — validate visually between steps (§1.4),
    Ctrl+S not publish (§1.5), Ctrl+Z is the parachute (§1.6), publish only at the end.
+9. **End EVERY message that contains a Mentor prompt with the feedback-loop reminder:**
+   tell the user to paste Mentor's full response back here, so the app's `context.md`
+   keeps learning from the codebase. Never hand over a prompt without this reminder.
 
 ## Closing a task
 
