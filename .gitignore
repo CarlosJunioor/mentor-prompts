@@ -1,0 +1,13 @@
+# Per-app private context (your real app's source-of-truth — never published)
+knowledge/apps/
+
+# Scratch Mentor prompt/capture outputs (always app-specific)
+tmp/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
