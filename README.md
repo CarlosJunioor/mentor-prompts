@@ -1,6 +1,8 @@
 # Mentor System
 
-<img width="500" height="500" alt="mentor-prompts" src="https://github.com/user-attachments/assets/0f95ebef-7588-4bf9-b747-7f7666eacb2b" />
+<p align="center">
+  <img width="500" height="500" alt="mentor-prompts" src="https://github.com/user-attachments/assets/0f95ebef-7588-4bf9-b747-7f7666eacb2b" />
+</p>
 
 A small, reusable system that helps you work on **any OutSystems ODC app** by using
 Claude Code to produce great prompts for **Mentor** (OutSystems' built-in AI assistant),
