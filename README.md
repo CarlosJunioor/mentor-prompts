@@ -1,5 +1,7 @@
 # Mentor System
 
+<img width="500" height="500" alt="mentor-prompts" src="https://github.com/user-attachments/assets/0f95ebef-7588-4bf9-b747-7f7666eacb2b" />
+
 A small, reusable system that helps you work on **any OutSystems ODC app** by using
 Claude Code to produce great prompts for **Mentor** (OutSystems' built-in AI assistant),
 and to improve that skill over time.
@@ -7,6 +9,10 @@ and to improve that skill over time.
 It is built from `.md` files that call each other. Inspired by
 [mattpocock/skills](https://github.com/mattpocock/skills) — the skill format and the
 `write-a-skill` skill come from there (MIT licensed).
+
+> **Disclaimer:** This project is not affiliated with, endorsed by, or supported by
+> OutSystems. "OutSystems" and "Mentor" are trademarks of OutSystems. Everything here
+> is community-created learning material.
 
 ## The idea
 
