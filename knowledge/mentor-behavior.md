@@ -32,7 +32,7 @@ guesses and breaks things. With it, the implementation prompt can be precise.
 - Mentor inserts new nodes reliably.
 - Mentor **fails** when it has to reorganize existing connectors (it breaks paths,
   leaves branches without incoming connectors, then "auto-corrects" into a worse state).
-- When a change requires reorganizing, **do the wiring by hand** in Service Studio, or
+- When a change requires reorganizing, **do the wiring by hand** in ODC Studio, or
   design the prompt so Mentor only inserts and you wire.
 
 ### 1.4 Validate visually between steps
@@ -73,7 +73,7 @@ architectural comment → no anchor, in free space at the top.
 
 - **Does not create `RaiseExceptionNode` from scratch** (cannot resolve the exception reference).
 - **Fails at event wiring on block instances** (occasional exception: sometimes works with `OnTextChanged`). The exact condition for the exception is not yet pinned down.
-- **Does not edit inline Records** (Local Vars / Structures defined inline) with types/lengths — it only sees the textual signature. **Workaround: add attributes to inline Records by hand in Service Studio first**, then Mentor can freely reference them in filters, bindings, expressions.
+- **Does not edit inline Records** (Local Vars / Structures defined inline) with types/lengths — it only sees the textual signature. **Workaround: add attributes to inline Records by hand in ODC Studio first**, then Mentor can freely reference them in filters, bindings, expressions.
 - **May touch files you didn't ask about** — always ask for the list of what changed.
 - **Reports "X changes made"** — always ask for the explicit list; do not trust the count.
 - **Inserting a node between two existing nodes inside IfNode branches breaks connectors** — confirmed repeatedly. Pattern: inserts → breaks connectors (ambiguous paths, branches with no incoming) → tries to auto-correct → fails worse. Ctrl+Z is essential. **This kind of insertion is by hand by default.**
@@ -163,10 +163,11 @@ CRITICAL — Anti-hallucination constraints:
 
 Report findings only, grouped under the headers above. Then stop.
 ```
-**Usage notes:** the output is the seed for the app's `context.md` — map it into §1
-(modules / UI flows / ownership) and §3 (entities, enums, key actions) of the template.
+**Usage notes:** the output seeds the app's per-app file set — route it the same way the
+`/mentor` skill does: modules / UI flows / ownership → `context.md` §1; entities / static
+entities / enum values → `database.md`; screens, blocks, and their actions → `blocks.md`.
 If a section returns PARTIAL, re-run this scoped to a single module or UI flow. Validate
-names against Service Studio before trusting them — first-run surveys age fast and Mentor
+names against ODC Studio before trusting them — first-run surveys age fast and Mentor
 can flatten or omit (§2).
 
 ### 4.1 Investigation (intra-action)
@@ -363,7 +364,7 @@ CRITICAL — Anti-hallucination constraints:
 Report findings only, grouped under the headers above. Then stop.
 ```
 **Usage notes:** descriptive headers (no "Step 1 —") are the correct method to avoid
-invented sections. Validate the final output with a Service Studio spot-check (disabled
+invented sections. Validate the final output with a ODC Studio spot-check (disabled
 markers, verbatim expressions, Find Usages for outputs). The architectural mapping it
 produces doubles as the basis for documentation Comment nodes (§1.8).
 

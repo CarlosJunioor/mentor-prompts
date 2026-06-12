@@ -170,4 +170,7 @@ Issues and pull requests are welcome — especially **validated Mentor learnings
 limitations, capabilities, or prompt patterns). The one hard rule: contributions must be
 **app-agnostic** — never commit a specific app's entities, screens, owners, UUIDs, or
 environment URLs. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide, including
-how findings get validated and promoted.
+the **"Before you commit" privacy checklist** and how findings get validated and promoted.
+
+Found real app data or a secret already committed? Don't open a public issue — report it
+privately per [SECURITY.md](SECURITY.md) so it can be scrubbed.

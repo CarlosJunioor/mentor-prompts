@@ -4,6 +4,11 @@ Verbatim record of `/talk-with-mentor` sessions. Questions Claude composed, answ
 Mentor gave — **unedited**. Distilled claims go to `learning-points.md` as hypotheses;
 nothing here is validated truth (Mentor's self-reports are claims, not facts).
 
+> ⚠️ **This file is committed to a public repo.** "Verbatim" means Mentor's *wording*,
+> not your real identifiers — scrub app-specific names (entities, screens, actions,
+> owners, UUIDs, URLs) to placeholders like `[EntityName]` before logging. App-specific
+> raw copies belong only in the git-ignored `knowledge/apps/<app>/` folder.
+
 Format per session:
 
 ```

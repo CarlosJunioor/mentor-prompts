@@ -4,6 +4,32 @@ knowledge/apps/
 # Scratch Mentor prompt/capture outputs (always app-specific)
 tmp/
 
+# Secrets / credentials — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+*credentials*
+*secret*
+
+# Claude Code local artifacts (keep the tracked skills, ignore everything else under .claude/)
+.claude/*
+!.claude/skills/
+*.jsonl
+**/session*.json
+**/transcript*
+
+# Backup / editor temp files (a stray copy of a private file must never slip in)
+*.bak
+*~
+*.swp
+*.swo
+*.tmp
+*.orig
+
 # IDE
 .idea/
 .vscode/

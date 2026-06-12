@@ -18,6 +18,21 @@ Never commit anything from a specific app:
 Your real app's facts belong in your local, git-ignored `knowledge/apps/<app>/` folder.
 PRs containing app-specific data will be asked to anonymize before merge.
 
+> Already committed real app data (or a secret) by mistake? **Don't open a public issue** —
+> report it privately so it can be scrubbed. See [SECURITY.md](SECURITY.md).
+
+### Before you commit — privacy checklist
+
+The app-agnostic rule is only as good as the 30 seconds you spend checking. Before every
+commit:
+
+1. **Review the diff:** `git diff --staged` — read it for real names, URLs, or UUIDs.
+2. **Grep your diff** for your app/company/teammate name (you know what to look for).
+3. **Confirm nothing private is staged:** `git status` should never show anything under
+   `knowledge/apps/`. That folder is git-ignored — **never** use `git add -f` to override
+   it, and don't let a GUI client's "include ignored files" toggle stage it.
+4. **Anonymize** any example identifier to `[brackets]` (`SaveOrder` → `[ActionName]`).
+
 ## What to contribute
 
 | Contribution | Where it goes | Bar to merge |
@@ -61,12 +76,15 @@ PR — a fact lives in exactly one place.
 
 ## Reporting without a PR
 
-Found something but don't want to write it up? Open an **issue** with:
+Found a behavior finding but don't want to write it up? Open an **issue** with:
 - the prompt you gave Mentor (anonymized),
 - what Mentor did vs. what you expected,
 - whether you could reproduce it.
 
 That's a valuable contribution too — someone else can validate and promote it.
+
+> **Not a behavior finding — a leak or a secret?** Do **not** open a public issue.
+> Report it privately per [SECURITY.md](SECURITY.md) so it can be scrubbed.
 
 ## Style notes
 
